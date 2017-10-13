@@ -14,9 +14,15 @@ fi
 echo "Installing epel, git, vim, and pip."
 echo "==================================="
 sudo yum check-update
-sudo yum install -y epel-release git vim
+sudo yum install -y epel-release git vim unzip
 sudo yum install -y python-pip
-sudo pip install --upgrade pip git-review
+sudo pip install --upgrade pip git-review 
+
+echo "Installing Terraform"
+echo "=================================="
+su vagrant -c 'mkdir ~/.local; mkdir ~/.local/bin'
+su vagrant -c 'curl -o ~/.local/bin/terraform.zip https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip'
+su vagrant -c 'cd ~/.local/bin; unzip terraform.zip'
 
 echo "Configuring git"
 echo "==============="
