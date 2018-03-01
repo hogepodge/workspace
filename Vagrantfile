@@ -21,7 +21,7 @@ sudo pip install --upgrade pip git-review
 echo "Installing Terraform"
 echo "=================================="
 su vagrant -c 'mkdir ~/.local; mkdir ~/.local/bin'
-su vagrant -c 'curl -o ~/.local/bin/terraform.zip https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip'
+su vagrant -c 'curl -o ~/.local/bin/terraform.zip https://releases.hashicorp.com/terraform/0.11.3/terraform_0.11.3_linux_amd64.zip'
 su vagrant -c 'cd ~/.local/bin; unzip terraform.zip'
 
 echo "Configuring git"
@@ -60,8 +60,8 @@ Vagrant.configure(2) do |config|
   config.vm.box = "centos/7"
   config.vm.provision "shell", inline: $script
 
-  config.vm.network "private_network", netmask: "255.255.255.0", ip: "192.168.11.5"
-  config.vm.network "private_network", netmask: "255.255.255.0", ip: "192.168.22.5"
+#  config.vm.network "private_network", netmask: "255.255.255.0", ip: "192.168.11.5"
+#  config.vm.network "private_network", netmask: "255.255.255.0", ip: "192.168.22.5"
 
   config.vm.provider :vmware_fusion do |vm|
         vm.memory = 1024
